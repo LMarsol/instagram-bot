@@ -9,11 +9,12 @@ async function scanPage(url) {
     const browser = await puppeteer.launch()
     const page = await browser.newPage()
     await page.goto(url)
-    //loading all commentS
-
+    
+    //loading all comments
     await loadComments(page, moreBtnSelector)
-    const comments = await getComments(page, commentSelector)
 
+    //fetching all comments
+    const comments = await getComments(page, commentSelector)
     console.log(comments)
 }
 
